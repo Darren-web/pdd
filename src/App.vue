@@ -1,23 +1,23 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
+    <TabBar/>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  import TabBar from './components/TabBar'
+  export default {
+    name:"App",
+    components: {
+      TabBar
+    }
+  }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="stylus" scoped>
+#app
+  width 100%
+  height 100%
+
 </style>
