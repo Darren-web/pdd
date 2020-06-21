@@ -6,7 +6,7 @@ import Chat from './../pages/Chat/Chat'
 import Me from './../pages/Me/Me'
 import Search from './../pages/Search/Search'
 //home二级路由
-import Hot from '@/pages/Home/children/Hot'
+import Hot from '@/pages/Home/children/Hot/Hot'
 import Box from '@/pages/Home/children/Box'
 import Dress from '@/pages/Home/children/Dress'
 import Ele from '@/pages/Home/children/Ele'

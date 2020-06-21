@@ -5,6 +5,7 @@
             :items="items"
             :options="options"  
             @change="handleChange"
+            class="fix"
         />
         <router-view></router-view>
     </div>
@@ -48,6 +49,11 @@
 .home
     width 100%
     height 100%
+    .fix
+        position fixed
+        top 0 
+        left 0
+        z-index 998
     
 
 </style>
