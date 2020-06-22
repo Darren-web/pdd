@@ -69,14 +69,74 @@
             </div>
         </div>
         <div class="hot-nav-bottom">
-            <div class="hot-nav-bottom-inner"></div>
+            <div class="hot-nav-bottom-inner" :style="innerBarStyle"></div>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name:"HotNav"
+        name:"HotNav",
+        data() {
+            return {
+                //屏幕宽度
+                screenW: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+                //滚动内容宽度
+                scrollContentW: 720,
+                //滚动条背景长度
+                bgBarW: 100,
+                //滚动条长度
+                barXWidth: 0,
+                //移动距离
+                barMoveWidth: 0,
+                //起点
+                startX: 0,
+                //结束点
+                endFlag: 0
+            }
+        },
+        computed:{
+            innerBarStyle() {
+                return {
+                    width: `${this.barXWidth}px`,
+                    left: `${this.barMoveWidth}px`
+                }
+            }
+        },
+        mounted() {
+            this.getBottomBarWidth();
+            this.bindEven();
+        },
+        methods: {
+            //获取滚动条长度
+            getBottomBarWidth() {
+                this.barXWidth = this.bgBarW * (this.screenW / this.scrollContentW)
+            },
+            //移动事件监听
+            bindEven() {
+                this.$el.addEventListener('touchstart',this.handleTouchStart,false);
+                this.$el.addEventListener('touchmove',this.handleTouchMove,false);
+                this.$el.addEventListener('touchend',this.handleTouchEnd,false);
+            },
+            handleTouchStart(event) {
+                let touch = event.touches[0];
+                this.startX = Number(touch.pageX);
+            },
+            handleTouchMove() {
+                let touch = event.touches[0];
+                let moveWidth = Number(touch.pageX) - this.startX;
+                this.barMoveWidth = -((this.bgBarW / this.scrollContentW) * moveWidth - this.endFlag);
+                if(this.barMoveWidth <= 0){ // 左边
+                    this.barMoveWidth = 0;
+                }else if(this.barMoveWidth >= this.bgBarW - this.barXWidth){ // 右边
+                    this.barMoveWidth = this.bgBarW - this.barXWidth;
+                }
+            },
+            handleTouchEnd() {
+                this.endFlag = this.barMoveWidth
+            }
+        }
+        
     }
 </script>
 
@@ -124,5 +184,5 @@
             left 0
             height 100%
             background-color  orangered
-            width 50px
+            width 0
 </style>
