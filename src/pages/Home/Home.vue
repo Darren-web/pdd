@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <ly-tab
+        <LyTab
             v-model="selectedId"
             :items="items"
             :options="options"  

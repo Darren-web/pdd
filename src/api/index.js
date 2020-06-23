@@ -1,7 +1,8 @@
 import ajax from './ajax'
 
 // 1. 定义基础路径
-const BASE_URL = '/local_api';
+const BASE_URL = 'http://127.0.0.1:3000'
+// const BASE_URL = '/local_api';
 
 // 2. 请求的方法
 // 2.1 请求首页的轮播图

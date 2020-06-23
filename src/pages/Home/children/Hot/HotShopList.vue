@@ -1,15 +1,14 @@
 <template>
     <div class="shop-container">
-        <ul class="shop-list">
-            <li class="shop-list-item">
-                <img src="./../../imgs/shop_list/shop_item.png" alt="" width="100%">
-                <h4 class="list-item-title">标题标题标题标题标题标题标题标题标题标题标题标题标题标题</h4>
+        <ul class="shop-list" v-if="homelist.length > 0">
+            <li class="shop-list-item" v-for="item in homelist" :key="item.goods_id">
+                <img :src="item.image_url" alt="item.short_name" width="100%">
+                <h4 class="list-item-title">{{item.goods_name}}</h4>
                 <div class="list-item-bottom">
-                    <span class="item-price">￥26.9</span>
-                    <span class="item-counter">已拼2342件</span>
+                    <span class="item-price">￥{{item.normal_price / 100}}</span>
+                    <span class="item-counter">{{item.sales_tip}}</span>
                     <span class="item-user">
-                        <img src="./../../imgs/shop_list/user1.jpg" alt="">
-                        <img src="./../../imgs/shop_list/user2.jpg" alt="">
+                        <img :src="img.avatar" v-for="img in item.bubble" :key="img.group_order_id" alt="">
                     </span>
                     <span class="item-buy">
                         <button>去拼单 ></button>
@@ -21,8 +20,12 @@
 </template>
 
 <script>
+    import { mapState } from 'vuex'
     export default {
-        name:"HotShopList"
+        name:"HotShopList",
+        computed: {
+            ...mapState(["homelist"])
+        }
     }
 </script>
 
