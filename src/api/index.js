@@ -11,15 +11,18 @@ export const getHomeCasual = () => ajax(BASE_URL + '/api/homecasual');
 export const getHomeNav = () => ajax(BASE_URL + '/api/homenav');
 // 2.3 请求首页的商品列表
 export const getHomeShopList = () => ajax(BASE_URL + '/api/homeshoplist');
+// 3.1 请求推荐列表的数据
 export const getRecommendList = () => ajax(BASE_URL + '/api/recommendshoplist');
+// 4. 搜索列表
+export const getSearchGoods = () => ajax(BASE_URL + "/api/searchgoods")
 
 // 3. 推荐数据请求
-const PDD_BASE_URL = '/api';
+// const PDD_BASE_URL = '/api';
 // 3.1 请求推荐列表的数据
-export const getRecShopList = (params) => ajax(PDD_BASE_URL, params);
+// export const getRecShopList = (params) => ajax(PDD_BASE_URL, params);
 
 // 4. 搜索列表
-export const getSearchgoods = () => ajax(BASE_URL + '/api/searchgoods');
+// export const getSearchgoods = () => ajax(BASE_URL + '/api/searchgoods');
 
 // 5. 获取短信验证码
 export const getPhoneCode = (phone) => ajax(BASE_URL + '/api/send_code', {phone});

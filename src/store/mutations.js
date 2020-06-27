@@ -1,4 +1,4 @@
-import { HOME_CASUAL, HOME_NAV, HOME_LIST, RECOMMEND_LIST } from './mutation_types'
+import { HOME_CASUAL, HOME_NAV, HOME_LIST, RECOMMEND_LIST, SEARCH_GOODS } from './mutation_types'
 export default {
     [HOME_CASUAL](state,{homecasual}) {
         state.homecasual = homecasual
@@ -11,5 +11,8 @@ export default {
     },
     [RECOMMEND_LIST](state,{recommendlist}) {
         state.recommendlist = recommendlist
+    },
+    [SEARCH_GOODS](state,{searchgoods}) {
+        state.searchgoods = searchgoods
     }
 }
