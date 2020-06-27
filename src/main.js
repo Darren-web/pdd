@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import LyTab from 'ly-tab'
 import store from './store'
+import '@/common/stylus/mixins.styl'
 
 Vue.use(LyTab)
 Vue.config.productionTip = false

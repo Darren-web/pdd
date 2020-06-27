@@ -11,6 +11,7 @@ export const getHomeCasual = () => ajax(BASE_URL + '/api/homecasual');
 export const getHomeNav = () => ajax(BASE_URL + '/api/homenav');
 // 2.3 请求首页的商品列表
 export const getHomeShopList = () => ajax(BASE_URL + '/api/homeshoplist');
+export const getRecommendList = () => ajax(BASE_URL + '/api/recommendshoplist');
 
 // 3. 推荐数据请求
 const PDD_BASE_URL = '/api';
